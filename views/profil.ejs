@@ -1,0 +1,68 @@
+<% layout('layout') -%>
+<% script('js/bootstrap.js') -%>
+<% stylesheet('css/bootstrap.css') -%>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+		  <h1><%= title %></h1>
+		  <p style="text-align:justify;">
+        Bienvenu <%= user.username %>.
+      </p>
+      <hr>
+      <p style="text-align:justify;">
+      </p>
+      <p><a href="#renvoie en dessous pas vers une autre page(ancre)" class="btn btn-primary btn-lg">Lire la suite... &raquo;</a></p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Univers disponibles:</h2>
+          <p>
+            <ul>
+              <li>
+                <code>Univers principal</code>: c'est l'univers du jeu, celui développé par notre équipe
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+              <li>
+                <code>Univers de test</code>: c'est l'univers ou l'on test des nouveautés (unités, terrain ...).
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+              <li>
+                <code>Univers perso</code>: c'est l'univers que le joueur peut se créer et peut inviter d'autres joueurs à y participer.
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+              <li>
+                <code>Univers partagés</code>: ce sont les univers perso des autres joueurs.
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <h1>Informations du compte</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>--</h2>
+          <p>
+            <p>Email: <%= user.email %></p>
+          </p>
+          <p><a class="btn btn-primary" href="#" role="button">Modifier &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>--</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-primary" href="#" role="button">Modifier &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>--</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-primary" href="#" role="button">Modifier &raquo;</a></p>
+        </div>
+      </div>
+
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
