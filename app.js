@@ -34,6 +34,8 @@ if ('development' == app.get('env')) {
 }
 require('./models/bdd')(app);
 require('./routes/routes')(app);
+require('./routes/maitre')(app);
+require('./routes/univers')(app);
 
 
 http.createServer(app).listen(app.get('port'), function(){

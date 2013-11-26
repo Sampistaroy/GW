@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <%-stylesheets%>
+
+  <STYLE type="text/css">
+  body{background-color:rgba(0,0,0,1);}
+  .row{background-color: rgba(255,255,255,0.1);margin-bottom:10px;border-radius: 5px;}
+  .col-md-6{background-color: rgba(255,255,255,1);margin-bottom:10px;border-radius: 5px;}
+  </STYLE>
+  </head>
+  <body>
+    <section>
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">G-W</h3>
+        <ul class="nav nav-justified">
+          <li class="active"><a href="../">Home</a></li>
+          <% if (!user) { %>
+            <li><a href="/login"><span class="glyphicon glyphicon-fire"></span> inscription/connexion</a></li>
+          <% } else { %>
+            <li><a href="/profil">profil</a></li>
+            <li><a href="/logout">logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+      <%-body -%>
+    </section>
+
+
+
+    <%-scripts%>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

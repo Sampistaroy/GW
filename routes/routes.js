@@ -62,7 +62,7 @@ module.exports = function (app){
 /*
  * GET PROFIL
  */
-    app.get('/profil', function(req, res){
+    app.get('/profil', ensureAuthenticated, function(req, res){
     	res.render('profil', {
     		user: req.user,
     		title: 'GW profil'
@@ -103,3 +103,9 @@ module.exports = function (app){
 
 
 };
+
+  // simple middleware pour s'assurer qu'il est authentifié
+  function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/login')
+  }

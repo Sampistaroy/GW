@@ -37,6 +37,7 @@ var mongoose = require('mongoose')
   };
 
   // Seed a user
+  var User = mongoose.model('User', userSchema);
   module.exports = mongoose.model('User', userSchema);
 
 
