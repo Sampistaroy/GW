@@ -1,0 +1,82 @@
+<% layout('layout') -%>
+<% script('js/bootstrap.js') -%>
+<% stylesheet('css/bootstrap.css') -%>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+		  <h1><%= title + ' ' %><code><%= user.username %></code></h1>
+		  <p style="text-align:center;">Ho Créateur ! Inventez-nous comme toutes choses en cet univers.</p>
+          <p>
+            <a href="/maitre-de-jeu-aide" class="btn btn-primary btn-lg">aide &raquo;</a>
+            <a href="/maitre-de-jeu" class="btn btn-primary btn-lg">retour &raquo;</a>
+          </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Créez une Unité:</h3>
+          <form method='post' action='/tasks'>
+
+            <div>
+            <label>Nom:</label>
+            <input type="text" name="nom"/><br/>
+            </div>
+
+            <div>
+            <label>Avatar:</label>
+            <input type="text" name="avatar"/><br/>
+            </div>
+
+            <hr>
+
+            <div>
+            <label>Type(batiment, bonhomme):</label>
+              <SELECT name="fonction">
+                <OPTION VALUE="type">par défaut($univers)</OPTION>
+                <OPTION VALUE="type">batiment</OPTION>
+                <OPTION VALUE="type">unité</OPTION>
+                <OPTION VALUE="type">ressources</OPTION>
+                <OPTION VALUE="type">composant</OPTION>
+              </SELECT>
+              ; <span class="glyphicon glyphicon-plus">Créer un nouveau type</span>
+            </div>
+
+            <div>
+            <label>section accessible($sect_access):</label>
+            <input type="text" name="sect_access"/><br/>
+            </div>
+
+            <div>
+            <label>parent($parent):</label>
+            <input type="text" name="parent"/><br/>
+            </div>
+
+            <hr>
+
+            <div>
+            <label>Type(ressources, caractéristiques):</label>
+              <SELECT name="fonction">
+                <OPTION VALUE="type">race</OPTION>
+                <OPTION VALUE="type">batiment</OPTION>
+                <OPTION VALUE="type">unité</OPTION>
+                <OPTION VALUE="type">ressources</OPTION>
+                <OPTION VALUE="type">composant</OPTION>
+              </SELECT>
+              ; <span class="glyphicon glyphicon-plus">Créer un nouveau type</span>
+            </div>
+
+            <div>
+              <span class="glyphicon glyphicon-plus">Rajoutez un autre type d'objet</span>
+            </div>
+                        
+           <br><input type="submit" value="Save">
+          </form>
+        </div>
+      </div>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->

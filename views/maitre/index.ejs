@@ -4,53 +4,109 @@
 
       <!-- Jumbotron -->
       <div class="jumbotron">
-		  <h1><%= title %></h1>
-		  <p style="text-align:center;">Partez à la découverte d'un univers de science fiction futuriste.</p>
-      	  <p><a href="http://www.dwargcrew.com/GW2" class="btn btn-primary btn-lg">histoire &raquo;</a></p>
+		  <h1><%= title + ' ' %><code><%= user.username %></code></h1>
+		  <p style="text-align:center;">Ho Créateur ! Inventez-nous comme toutes choses en cet univers.</p>
+      	  <p><a href="/maitre-de-jeu-aide" class="btn btn-primary btn-lg">aide &raquo;</a></p>
       </div>
 
       <div class="row">
         <div class="col-md-6">
-          <h2>incarnez</h2>
+          <h2><a href="/maitre-unit-new">Créer une unité</a></h2>
           <p>
-            Soit un empire
-            <br>Soit une Equipe de heros
+            une nouvelle idée d'unité ? Cela peut être un être vivant, comme un PNJ ou un batiment.
             <hr>
-            4 types d'empires disponibles.
-            Plusieurs types de heros, on commence avec 2 puis on recrute, etc.
+            En faite on Créé un objet, que l'on peut inclure dans d'autres objets, "où dans lequel on peut inclure d'autres objets":FAUX les actions inclueront.
+            <hr>
+            liste caract objet:
+            <br>De base:
+            <br>-Nom
+            <br>-avatar
+            <br>-type(batiment, bonhomme...): c'est les catégories, On peut en créer
+            <br>-parent(après quel autre objet arrive-t-il, le parent par défaut est l'univers puis l'empereur puis la race etc...)
+            <hr>
+
+            Ce n'est plu "Faire la liste des caractéristiques de ces Objets(document) pour le créer" mais "Faire la liste des objets à créer".
+            <hr>
+            -origine(n'est pas nécessaire dans la logique OBJET, parent remplit cette fonction)
+            <br>-section accessible(plateau, histoire...)
+            <hr>
+            -temps de fabrication
+            <br>-cout en ressources: le cout en ressources ou composants sont des conditions particulières sont des actions entre OBJETS. On l'enlève il sera créé grace aux actions.
+            <hr>
+            Les caractéristiques peuvent aussi être des objets:
+            <br>-vie
+            <br>-énergie
+            <br>-degats physique
+            <br>-degats magique
+            <br>-armure
+            <br>-rés. magie
+            <br>-vit déplacement
+            <br>-vit travail
+            <hr>
+            -cout en entretien
+            <br>-type de place occupées
+            <br>-nombres de places occupées
           </p>
         </div>
         <div class="col-md-6">
-          <h2>développez</h2>
+          <h2>Hiérarchie de vos unités</h2>
           <p>
-            Pour l'empire, commencez par un système stellaire avec quelques planètes(style anno 1602)
-            <br>Prenez possession de nouveaux systemes stellaire
-            <br>D'oasis
-            <hr>
-            Pour les heros, obtenez des niveaux, des compétences, des objets, des badges, de nouveaux heros.
+            Permet de voir la juxtaposition des unités créés.
+            <br>Ca par du joueur, et ca fait un arbre montrant,
+            tous les liens entre les éléments, les superpositions et enchainements.
           </p>
        </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
-          <h2>Combattez</h2>
-          <p>
-            Les champs de batailles sont des portes ou des zones d'oasis.
-            <br>Pour votre guildes, les guildes sont comme des oasis, comme un reseaux d'empires reliés entre eux. Lorsqu'elles sont pas en contact avec un oasis ou qu'elles ne font pas de commerce extérieure elles sont invisibles. (option de visibilité activable tout de meme et on peut les trouver grace à des marchands.).
-            <br>Sinon elles sont visibles et donc attaquables par d'autres joueurs. Par l'intermédiaire des portes. Les joueurs qui attaquent remonte dans le reseaux de la guilde de proche en proche.
-            <br>attaquable également sur les zones controlées dans un oasis et remontable comme pour les portes de proches en proches.(penser virus informatique)
-            <br>Le mode assault, un joueur prépare un défit avec une suite d'unités, l'autre joueur relève le défis et doit se defendre jusqu'a la fin de l'attaque.
-            <br>Les donjons, instances à la mmo créée par un joueur sur son territoire de son empire, on fait le donjon et on gagne une récompense sur le bosse de fin. le scénario est écrit par le propriétaire de l'empire.
-          </p>
+          <h2>Créer des actions(sortillèges ??)</h2>
+          verbe des actions:
+          <br>fabriquer(créer la vie)
+          <br>supprimer(affecte la vie)
+          <br>ajouter(régénère quelque chose)
+          <br>transformer(passer d'un état à un autre)
+          <br>poke(émettre un message)
+          <br>
         </div>
         <div class="col-md-6">
-          <h2>imaginez</h2>
+          <h2>Liez vos actions à vos unités</h2>
           <p>
-            Créez votre propre univers et invitez d'autres joueurs à y partticiper
+            donner des pouvoirs.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Créer les plateaux</h2>
+          -Nom
+          <br>-taille: X x Y
+          <br>
+       </div>
+        <div class="col-md-6">
+          <h2>Créer des scénarios</h2>
+          <p>
+            enchainement de plateaux d'histoires et unités.
           </p>
        </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Créer des histoires</h2>
+          Ce sont des pages avec images et textes et actions.
+       </div>
+        <div class="col-md-6">
+          <h2>Créer des scénarios</h2>
+          <p>
+            enchainement de plateaux d'histoires et unités.
+          </p>
+       </div>
+      </div>
+
+
+
 
       <!-- Site footer -->
       <div class="footer">
