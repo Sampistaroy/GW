@@ -6,7 +6,7 @@
       <div class="jumbotron">
 		  <h1><%= title + ' ' %><code><%= user.username %></code></h1>
 		  <p style="text-align:center;">Ho Créateur ! Inventez-nous comme toutes choses en cet univers.</p>
-      	  <p><a href="/maitre-de-jeu-aide" class="btn btn-primary btn-lg">aide &raquo;</a></p>
+      	  <p><a href="/maitre-aide" class="btn btn-primary btn-lg">aide &raquo;</a></p>
       </div>
 
       <div class="row">
@@ -21,7 +21,7 @@
             <br>De base:
             <br>-Nom
             <br>-avatar
-            <br>-type(batiment, bonhomme...): c'est les catégories, On peut en créer
+            <br>-type(batiment, bonhomme...): c'est les catégories, On peut en créer dans lesquels l'objet est inclus.
             <br>-parent(après quel autre objet arrive-t-il, le parent par défaut est l'univers puis l'empereur puis la race etc...)
             <hr>
 
@@ -55,19 +55,25 @@
             <br>Ca par du joueur, et ca fait un arbre montrant,
             tous les liens entre les éléments, les superpositions et enchainements.
           </p>
+          <p>
+            <a href="/chp_bat_new">créer un champ de bataille</a>
+          </p>
        </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <h2>Créer des actions(sortillèges ??)</h2>
+          Les actions seront crées de base dans l'application.
           verbe des actions:
           <br>fabriquer(créer la vie)
           <br>supprimer(affecte la vie)
           <br>ajouter(régénère quelque chose)
+          <br>enlever(affaiblis quelque chose)
           <br>transformer(passer d'un état à un autre)
           <br>poke(émettre un message)
-          <br>
+          <hr>
+          Pour créer une action il faut sélectinner un objet et une attribuer un verbe(de fonction).
         </div>
         <div class="col-md-6">
           <h2>Liez vos actions à vos unités</h2>
@@ -79,10 +85,15 @@
 
       <div class="row">
         <div class="col-md-6">
-          <h2>Créer les plateaux</h2>
+          <h2><a href="/maitre-grille-new">Créer les plateaux</a></h2>
+          <h4><a href="/maitre-grille-show">voir les plateaux existants</a></h4>
+          C'est dans le plateau de jeu que vous configurez les dimensions de votre grille et les objets qui y existent.
+          <hr>
+          <h3>caractéristiques</h3>
           -Nom
           <br>-taille: X x Y
-          <br>
+          <br>-objet: [objet:value]
+          <br>-actions?: [action:config]
        </div>
         <div class="col-md-6">
           <h2>Créer des scénarios</h2>
@@ -95,12 +106,12 @@
       <div class="row">
         <div class="col-md-6">
           <h2>Créer des histoires</h2>
-          Ce sont des pages avec images et textes et actions.
+          Ce sont des pages avec images et textes.
        </div>
         <div class="col-md-6">
           <h2>Créer des scénarios</h2>
           <p>
-            enchainement de plateaux d'histoires et unités.
+            enchainement de plateaux, d'histoires, d'actions et d'objets.
           </p>
        </div>
       </div>

@@ -21,8 +21,8 @@
 
       <div class="row">
         <div class="col-md-12">
-          <h3>Créez une Unité:</h3>
-          <form method='post' action='/maitre-unit-new'>
+          <h3>Créez un champ de bataille:</h3>
+          <form method='post' action='/maitre-chp_bat-new'>
 
             <div>
             <label>Nom:</label>
@@ -45,7 +45,7 @@
               <div>
                 <h2>Inclure d'autres documents dans celui-ci:</h2>
                   <% for (var index in docs) { %>
-                    <input type="checkbox" name="<%= docs[index].unit %>" value="<%= docs[index]._id %>"> <%= docs[index].unit %> |
+                    <input type="radio" name="grille" value="<%= docs[index]._id %>"> <%= docs[index].name %> |
                   <% } %>
               </div>
             <% } else { %>

@@ -55,17 +55,6 @@ module.exports = function (app){
 	});
 
 
-/*
- * GET home page.
- */
-	app.get('/grille-tout-de-suite', ensureAuthenticated, function (req, res){
-		res.render('tout/tout_grille', {
-			user : req.user,
-			title : 'grille de combat'
-		});
-	});
-
-
 
 };
 

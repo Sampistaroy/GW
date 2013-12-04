@@ -1,0 +1,24 @@
+
+<a href="tasks/new">New</a>
+<br>
+<!-- test du message flash -->
+<% if(flash != 'undefined'){
+%>
+<a href="#" class="close">x</a>
+<%= flash %><br><br><%
+} %>
+<!-- fin du test de message flash -->
+
+<% docs.forEach(function (task) { %>
+    	<a href="tasks/<%= task.id %>"><%= task.task %></a>
+        <form style="inline-form" method="post" action="tasks/<%= task.id %>">
+    	    <input name="_method" value="DELETE" type="hidden">
+    	    <input type="submit" value="Delete">
+        </form>
+    	<a href="tasks/<%= task.id %>/edit"><%= task.task %></a><br><br>
+<% }); %>
+
+
+<br><br>
+
+ <!-- <%= docs %> -->

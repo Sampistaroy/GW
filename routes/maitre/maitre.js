@@ -23,17 +23,6 @@ module.exports = function (app){
 		});
 	});
 
-/*
- * GET New unit.
- */
-	app.get('/maitre-unit-new', ensureAuthenticated, function (req, res){
-		res.render('unit/new', {
-			user : req.user,
-			title : ' Que voulez vous créer Maitre Du Jeu'
-		});
-	});
-
-
 
 };
 

@@ -1,0 +1,46 @@
+<% layout('layout') -%>
+<% script('js/bootstrap.js') -%>
+<% stylesheet('css/bootstrap.css') -%>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+		  <h1><%= title %></h1>
+		  <p style="text-align:justify;">
+        Bienvenu <%= user.username %>.
+      </p>
+      <hr>
+      <p style="text-align:justify;">
+      </p>
+      <p><a href="/maitre-de-jeu" class="btn btn-danger btn-lg">Ho ! créateur de l'univers &raquo;</a></p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Univers disponibles:</h2>
+          <p>
+            <ul>
+              <li>
+                <code>Univers principal</code>: c'est l'univers du jeu, celui développé par notre équipe
+                <a class="label label-danger pull-right" href="/univers-general">entrer &raquo;</a>
+              </li>
+              <li>
+                <code>Univers de test</code>: c'est l'univers ou l'on test des nouveautés (unités, terrain ...).
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+              <li>
+                <code>Univers perso</code>: c'est l'univers que le joueur peut se créer et peut inviter d'autres joueurs à y participer.
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+              <li>
+                <code>Univers partagés</code>: ce sont les univers perso des autres joueurs.
+                <a class="label label-default pull-right" href="#">entrer &raquo;</a>
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->

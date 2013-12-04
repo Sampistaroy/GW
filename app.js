@@ -34,7 +34,12 @@ if ('development' == app.get('env')) {
 }
 require('./models/bdd')(app);
 require('./routes/routes')(app);
-require('./routes/maitre')(app);
+require('./routes/jouer')(app);
+require('./routes/empire')(app);
+require('./routes/maitre/chp_bat')(app);
+require('./routes/maitre/maitre')(app);
+require('./routes/maitre/grille')(app);
+require('./routes/maitre/unit')(app);
 require('./routes/univers')(app);
 
 
