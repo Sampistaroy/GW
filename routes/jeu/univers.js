@@ -4,16 +4,14 @@ module.exports = function (app){
 
 
 /*
- * GET home page.
+ * GET page accueil univers page.
  */
-	app.get('/jouer', ensureAuthenticated, function (req, res){
-		res.render('jouer', {
+	app.get('/univers-general', ensureAuthenticated, function (req, res){
+		res.render('univers/index', {
 			user : req.user,
-			title : 'Choississez votre univers pour jouer'
+			title : 'Bienvenu, HO! Empereur'
 		});
 	});
-
-
 };
 
   // simple middleware pour s'assurer qu'il est authentifié

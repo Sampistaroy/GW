@@ -1,6 +1,6 @@
 var passport = require('passport')
-  , Unit = require('../../models/unit')
-  , Grille = require('../../models/grille');
+  , Unites = require('../../models/unites')
+  , Zones = require('../../models/zones');
 
 module.exports = function (app){
 
@@ -19,7 +19,7 @@ module.exports = function (app){
  * GET New grille.
  */
 	app.get('/maitre-grille-new', function (req, res){
-      Unit.find({}, function (err, docs) {
+      Unites.find({}, function (err, docs) {
         res.render('grille/new', {
           docs: docs,
 		  user : req.user,
@@ -33,7 +33,7 @@ module.exports = function (app){
  * POST New grille.
  */
 	app.post('/maitre-grille-new', function (req, res){
-	  var grille = new Grille();
+	  var grille = new Zones();
 	  grille.name = req.body.name;
 	  grille.avatar = req.body.avatar;
 	  grille.description = req.body.description;
@@ -57,7 +57,7 @@ module.exports = function (app){
  * GET show grille.
  */
 	app.get('/maitre-grille-show', ensureAuthenticated, function (req, res){
-      Grille.find({}, function (err, docs) {
+      Zones.find({}, function (err, docs) {
         res.render('grille/show', {
           docs: docs,
 		  user : req.user,

@@ -10,19 +10,12 @@
             <a href="/maitre-aide" class="btn btn-primary btn-lg">aide &raquo;</a>
             <a href="/maitre-de-jeu" class="btn btn-primary btn-lg">retour &raquo;</a>
           </p>
-          
-          <p>
-            <a href="/maitre-unit-new" class="btn btn-primary btn-lg">Créer &raquo;</a>
-            <a href="#" class="btn btn-primary btn-lg">Modifier &raquo;</a>
-            <a href="#" class="btn btn-primary btn-lg">Supprimer &raquo;</a>
-            <a href="/maitre-unit-show" class="btn btn-primary btn-lg">Voir &raquo;</a>
-          </p>
       </div>
 
       <div class="row">
         <div class="col-md-12">
-          <h3>Créez un champ de bataille:</h3>
-          <form method='post' action='/maitre-chp_bat-new'>
+          <h3>Créez une Unité:</h3>
+          <form method='post' action='/maitre-unit-new'>
 
             <div>
             <label>Nom:</label>
@@ -41,11 +34,11 @@
 
             <hr>
 
+                <h2>Inclure d'autres unités dans celle-ci:</h2>
             <% if (docs && docs.length !=0) { %>
               <div>
-                <h2>Inclure d'autres documents dans celui-ci:</h2>
                   <% for (var index in docs) { %>
-                    <input type="radio" name="grille" value="<%= docs[index]._id %>"> <%= docs[index].name %> |
+                    <input type="checkbox" name="<%= docs[index].unit %>" value="<%= docs[index]._id %>"> <%= docs[index].unit %> |
                   <% } %>
               </div>
             <% } else { %>
@@ -56,17 +49,19 @@
 
             <hr>
 
-            <div>
-            <label>Inclure dans autre documents:</label>
-              <SELECT name="fonction2">
-                <OPTION VALUE="type">par défaut($univers)</OPTION>
-                <OPTION VALUE="type">batiment</OPTION>
-                <OPTION VALUE="type">unité</OPTION>
-                <OPTION VALUE="type">ressources</OPTION>
-                <OPTION VALUE="type">composant</OPTION>
-              </SELECT>
-              ; <span class="glyphicon glyphicon-plus">Créer un nouveau type</span>
-            </div>
+                <h2>Inclure cette unité dans d'autres unités:</h2>
+            <% if (docs && docs.length !=0) { %>
+              <div>
+                  <% for (var index in docs) { %>
+                    <input type="checkbox" name="<%= docs[index].unit %>" value="<%= docs[index]._id %>"> <%= docs[index].unit %> |
+                  <% } %>
+              </div>
+            <% } else { %>
+              <div>
+                no document exist
+              </div>
+            <% } %>
+
 
             <input type="submit" value="Save">
           </form>

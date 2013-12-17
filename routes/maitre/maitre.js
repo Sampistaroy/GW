@@ -1,15 +1,20 @@
-var passport = require('passport');
+var passport = require('passport')
+  , Unites = require('../../models/unites');
 
 module.exports = function (app){
+
 
 
 /*
  * GET home page.
  */
 	app.get('/maitre-de-jeu', ensureAuthenticated, function (req, res){
-		res.render('maitre/index', {
-			user : req.user,
-			title : 'Bienvenu Maitre Du Jeu'
+		Unites.find({}, function (err, unites) {
+			res.render('maitre/index', {
+				user : 		req.user,
+				title : 	'Bienvenu Maitre Du Jeu',
+				unites: 		unites
+			});
 		});
 	});
 

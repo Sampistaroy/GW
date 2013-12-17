@@ -101,6 +101,15 @@ module.exports = function (app){
     });
 
 
+/*
+ * GET jouer page.
+ */
+	app.get('/jouer', ensureAuthenticated, function (req, res){
+		res.render('jouer', {
+			user : req.user,
+			title : 'Choississez votre univers pour jouer'
+		});
+	});
 
 };
 

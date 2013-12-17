@@ -6,16 +6,6 @@ module.exports = function (app){
 /*
  * GET home page.
  */
-	app.get('/univers-general', ensureAuthenticated, function (req, res){
-		res.render('univers/index', {
-			user : req.user,
-			title : 'Bienvenu, HO! Empereur'
-		});
-	});
-
-/*
- * GET home page.
- */
 	app.get('/combattez-tout-de-suite', ensureAuthenticated, function (req, res){
 		res.render('combattez/index', {
 			user : req.user,

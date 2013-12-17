@@ -7,13 +7,12 @@ function validatePresenceOf(value) {
   return value && value.length;
 }
 
-var Grille = new Schema({
-  name : { type: String, validate: [validatePresenceOf, 'a grille is required'] },
+var Unites = new Schema({
+  name : { type: String, validate: [validatePresenceOf, 'un nom est requis'] },
   avatar : { type: String },
   description : { type: String },
-  size : { x: Number, y: Number },
   created_at : Date,
   updated_at : Date
 });
-var Grille = mongoose.model('Grille', Grille);
-module.exports = mongoose.model('Grille', Grille);
+var Unites = mongoose.model('Unites', Unites);
+module.exports = mongoose.model('Unites', Unites);

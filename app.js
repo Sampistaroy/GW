@@ -33,14 +33,17 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 require('./models/bdd')(app);
+/* ROUTES */
+// générales
 require('./routes/routes')(app);
-require('./routes/jouer')(app);
-require('./routes/empire')(app);
-require('./routes/maitre/chp_bat')(app);
+// du jeu
+require('./routes/jeu/univers')(app);
+require('./routes/jeu/empire')(app);
+require('./routes/jeu/combat_tt_de_suite')(app);
+// du maitre de jeu
 require('./routes/maitre/maitre')(app);
-require('./routes/maitre/grille')(app);
-require('./routes/maitre/unit')(app);
-require('./routes/univers')(app);
+require('./routes/maitre/zones')(app);
+require('./routes/maitre/unites')(app);
 
 
 http.createServer(app).listen(app.get('port'), function(){

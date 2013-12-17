@@ -7,12 +7,13 @@ function validatePresenceOf(value) {
   return value && value.length;
 }
 
-var Unit = new Schema({
-  name : { type: String, validate: [validatePresenceOf, 'a task is required'] },
+var Zones = new Schema({
+  name : { type: String, validate: [validatePresenceOf, 'a zone is required'] },
   avatar : { type: String },
   description : { type: String },
+  size : { x: Number, y: Number },
   created_at : Date,
   updated_at : Date
 });
-var Unit = mongoose.model('Unit', Unit);
-module.exports = mongoose.model('Unit', Unit);
+var Zones = mongoose.model('Zones', Zones);
+module.exports = mongoose.model('Zones', Zones);
