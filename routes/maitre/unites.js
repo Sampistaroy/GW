@@ -7,10 +7,10 @@ module.exports = function (app){
 /*
  * GET New unit.
  */
-	app.get('/maitre-unit-new', ensureAuthenticated, function (req, res){
-      Unites.find({}, function (err, docs) {
+	app.get('/maitre-unites-new', ensureAuthenticated, function (req, res){
+      Unites.find({}, function (err, unites) {
         res.render('unites/new', {
-          docs: docs,
+          unites: unites,
 		  user : req.user,
 		  title : ' Que voulez vous créer Maitre Du Jeu'
         });
@@ -21,7 +21,7 @@ module.exports = function (app){
 /*
  * POST New unit.
  */
-	app.post('/maitre-unit-new', ensureAuthenticated, function (req, res){
+	app.post('/maitre-unites-new', ensureAuthenticated, function (req, res){
 	  var unit = new Unites();
 	  unit.name = req.body.name;
 	  unit.avatar = req.body.avatar;
@@ -29,11 +29,11 @@ module.exports = function (app){
 	  unit.created_at = new Date();
 	  unit.save(function (err) {
 	    if (!err) {
-	      res.redirect('/maitre-unit-new');
+	      res.redirect('/maitre-unites-new');
 	      console.log(req.body);
 	    }
 	    else {
-	      res.redirect('/maitre-unit-new');
+	      res.redirect('/maitre-unites-new');
 	    }
 	  });
     });
@@ -43,8 +43,9 @@ module.exports = function (app){
 /*
  * GET show unit.
  */
-	app.get('/maitre-unit-show', ensureAuthenticated, function (req, res){
-      Unites.find({}, function (err, unites) {
+
+	app.get('/maitre-unites-show/:id', ensureAuthenticated, function (req, res){
+      Unites.findById(req.params.id, function (err, unites) {
         res.render('unites/show', {
           unites: unites,
 		  user : req.user,
@@ -57,10 +58,55 @@ module.exports = function (app){
  * GET edit unit.
  */
 
+	exports.taskedit = function(req, res){
+	  models.Task.findById(req.params.id, function (err, doc){
+	    res.render('tasks/edit', { 
+	      title: 'My Site', 
+	      task: doc 
+	    });
+	  });
+	}
+
+	exports.taskeditput = function(req, res){
+	  models.Task.findById(req.params.id, function (err, doc){
+	    doc.updated_at = new Date();
+	    doc.task = req.body.task;
+	    doc.save(function(err) {
+	      if (!err){
+	        req.flash('info', 'Task udpated');
+	        res.redirect('/tasks');
+	      }
+	      else {
+	        // error handling
+	      }
+	    });
+	  });
+	}
+
+	app.get('/maitre-unites-show/:id', ensureAuthenticated, function (req, res){
+      Unites.findById(req.params.id, function (err, unites) {
+        res.render('unites/show', {
+          unites: unites,
+		  user : req.user,
+		  title : ' Que voulez vous créer Maitre Du Jeu'
+        });
+      });
+    });
+
 
 /*
  * GET delete unit.
  */
+
+
+	app.del('/maitre-unites-del/:id', ensureAuthenticated, function (req, res){
+    	Unites.findOne({ _id: req.params.id }, function (err, unites) {
+			if (!unites) return next(new NotFound('unit not found'));
+	    	unites.remove(function() {
+	      		res.redirect('/maitre-de-jeu');
+	    	});
+    	});
+    });
 
 };
 

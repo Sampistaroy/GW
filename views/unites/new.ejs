@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-md-12">
           <h3>Créez une Unité:</h3>
-          <form method='post' action='/maitre-unit-new'>
+          <form method='post' action='/maitre-unites-new'>
 
             <div>
             <label>Nom:</label>
@@ -33,12 +33,13 @@
             </div>
 
             <hr>
+            <%= unites.name %>
 
                 <h2>Inclure d'autres unités dans celle-ci:</h2>
-            <% if (docs && docs.length !=0) { %>
+            <% if (unites && unites.length !=0) { %>
               <div>
-                  <% for (var index in docs) { %>
-                    <input type="checkbox" name="<%= docs[index].unit %>" value="<%= docs[index]._id %>"> <%= docs[index].unit %> |
+                  <% for (var index in unites) { %>
+                    <input type="checkbox" name="<%= unites[index].unit %>" value="<%= unites[index]._id %>"> <%= unites[index].name %> |
                   <% } %>
               </div>
             <% } else { %>
@@ -50,10 +51,10 @@
             <hr>
 
                 <h2>Inclure cette unité dans d'autres unités:</h2>
-            <% if (docs && docs.length !=0) { %>
+            <% if (unites && unites.length !=0) { %>
               <div>
-                  <% for (var index in docs) { %>
-                    <input type="checkbox" name="<%= docs[index].unit %>" value="<%= docs[index]._id %>"> <%= docs[index].unit %> |
+                  <% for (var index in unites) { %>
+                    <input type="checkbox" name="<%= unites[index].unit %>" value="<%= unites[index]._id %>"> <%= unites[index].unit %> |
                   <% } %>
               </div>
             <% } else { %>

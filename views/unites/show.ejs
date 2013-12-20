@@ -1,13 +1,28 @@
-<a href="/maitre-unit-new">créer</a>
-            <% if (docs) { %>
-              <div>
-                <h2>Inclure d'autres documents dans celui-ci:</h2>
-                  <% for (var index in docs) { %>
-                    <input type="checkbox" name="<%= docs[index].unit %>" value="<%= docs[index]._id %>"> <%= docs[index].unit %> |
-                  <% } %>
-              </div>
-            <% } else { %>
-              <div>
-                no document exist
-              </div>
-            <% } %>
+<% layout('layout') -%>
+<% script('js/bootstrap.js') -%>
+<% stylesheet('css/bootstrap.css') -%>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+      <h1><%= title + ' ' %><code><%= user.username %></code></h1>
+      <p style="text-align:center;">Ho Créateur ! Inventez-nous comme toutes choses en cet univers.</p>
+          <p>
+            <a href="/maitre-aide" class="btn btn-primary btn-lg">aide &raquo;</a>
+            <a href="/maitre-de-jeu" class="btn btn-primary btn-lg">retour &raquo;</a>
+          </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= unites.name %>
+          <img src="images/unites/<%= unites.avatar %>.jpeg">
+          <%= unites.description %>
+        </div>
+      </div>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->

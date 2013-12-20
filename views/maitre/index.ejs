@@ -12,32 +12,23 @@
       <div class="row" style="background-color:rgba(50,200,150,1)">
         <div class="col-md-6">
           <h2>Liste des Unités</h2>
-          
-            <% if (unites && unites.length !=0) { %>
-              <div>
-                  <% for (var index in unites) { %>
-                    <%= unites[index].unit %> <%= unites[index]._id %> |
-                  <% } %>
-              </div>
-            <% } else { %>
-              <div>
-                no unit exist
-              </div>
-            <% } %>
+
           <!-- fin du test de message flash -->
 
-          <% unites.forEach(function (task) { %>
+          <% unites.forEach(function (unites) { %>
 
             <p>
-              <img src="images/syst_planet1.jpeg">
-              <strong>syst_solaire1</strong>
-              <a href="tasks/<%= task.id %>"><%= task.name %></a>
-                <form style="inline-form" method="post" action="tasks/<%= task.id %>">
-                  <input name="_method" value="DELETE" type="hidden">
-                  <input type="submit" value="Delete">
-                </form>
-              <a href="tasks/<%= task.id %>/edit"><%= task.name %></a><br><br>
+              <img src="images/unites/<%= unites.avatar %>.jpeg">
+              <strong>
+                <a href="maitre-unites-show/<%= unites.id %>"><%= unites.name %></a>
+              </strong>
+              <form style="inline-form" method="post" action="maitre-unites-del/<%= unites.id %>">
+                <input name="_method" value="DELETE" type="hidden">
+                <input type="submit" value="Delete">
+              </form>
+              <a href="maitre-unites-edit/<%= unites.id %>"><%= unites.name %></a>
             </p>
+            <hr>
           <% }); %>
         </div>
 
@@ -51,75 +42,58 @@
 
       <div class="row" style="background-color:rgba(200,100,50,1)">
         <div class="col-md-6">
-          <h2>Liste des Objets avec actions</h2>
+          <h2>Liste des unités avec actions</h2>
           
-            <% if (unites && unites.length !=0) { %>
-              <div>
-                <h2>Inclure d'autres documents dans celui-ci:</h2>
-                  <% for (var index in unites) { %>
-                    <input type="checkbox" name="<%= unites[index].unit %>" value="<%= unites[index]._id %>"> <%= unites[index].unit %> |
-                  <% } %>
-              </div>
-            <% } else { %>
-              <div>
-                no document exist
-              </div>
-            <% } %>
           <!-- fin du test de message flash -->
 
-          <% unites.forEach(function (task) { %>
+          <% unites.forEach(function (unites_action) { %>
 
             <p>
               <img src="images/syst_planet1.jpeg">
               <strong>syst_solaire1</strong>
-              <a href="tasks/<%= task.id %>"><%= task.name %></a>
-                <form style="inline-form" method="post" action="tasks/<%= task.id %>">
+              <a href="tasks/<%= unites_action.id %>"><%= unites_action.name %></a>
+                <form style="inline-form" method="post" action="tasks/<%= unites_action.id %>">
                   <input name="_method" value="DELETE" type="hidden">
                   <input type="submit" value="Delete">
                 </form>
-              <a href="tasks/<%= task.id %>/edit"><%= task.name %></a><br><br>
+              <a href="tasks/<%= unites_action.id %>/edit"><%= unites_action.name %></a><br><br>
             </p>
           <% }); %>
         </div>
 
         <div class="col-md-6" style="background-color:rgba(200,50,50,0.6)">
-          <h2><a href="/maitre-unites-actions-new">Nouvel action pour un objet</a></h2>
+          <h2><a href="/maitre-unites-actions-new">Nouvel action pour une unité</a></h2>
           <p>
-            Permet d'ajouter des actions sur vos objets.
+            Permet d'ajouter des actions sur vos unités.
             <br><a href="#" class="btn btn-primary btn-sm">Aide - explications &raquo;</a>
           </p>
        </div>
       </div>
 
+
+      <!-- Site footer -->
+      <!-- Debut zone -->
+
+
+
+
+
       <div class="row" style="background-color:rgba(50,150,200,1)">
         <div class="col-md-6">
           <h2>Liste des Grilles</h2>
-          
-            <% if (unites && unites.length !=0) { %>
-              <div>
-                <h2>Inclure d'autres documents dans celui-ci:</h2>
-                  <% for (var index in unites) { %>
-                    <input type="checkbox" name="<%= unites[index].unit %>" value="<%= unites[index]._id %>"> <%= unites[index].unit %> |
-                  <% } %>
-              </div>
-            <% } else { %>
-              <div>
-                no document exist
-              </div>
-            <% } %>
           <!-- fin du test de message flash -->
 
-          <% unites.forEach(function (task) { %>
+          <% unites.forEach(function (zones) { %>
 
             <p>
               <img src="images/syst_planet1.jpeg">
               <strong>syst_solaire1</strong>
-              <a href="tasks/<%= task.id %>"><%= task.name %></a>
-                <form style="inline-form" method="post" action="tasks/<%= task.id %>">
+              <a href="tasks/<%= zones.id %>"><%= zones.name %></a>
+                <form style="inline-form" method="post" action="tasks/<%= zones.id %>">
                   <input name="_method" value="DELETE" type="hidden">
                   <input type="submit" value="Delete">
                 </form>
-              <a href="tasks/<%= task.id %>/edit"><%= task.name %></a><br><br>
+              <a href="tasks/<%= zones.id %>/edit"><%= zones.name %></a><br><br>
             </p>
           <% }); %>
         </div>
@@ -132,52 +106,75 @@
        </div>
       </div>
 
+      <!-- Fin zone -->
+      <!-- Début zone avec unites et actions -->
 
 
       <div class="row" style="background-color:rgba(50,200,150,1)">
         <div class="col-md-6">
-          <h2>Liste des Grilles avec Objets avec Actions</h2>
+          <h2>Liste des Grilles avec unités avec Actions</h2>
           
-            <% if (unites && unites.length !=0) { %>
-              <div>
-                <h2>Inclure d'autres documents dans celui-ci:</h2>
-                  <% for (var index in unites) { %>
-                    <input type="checkbox" name="<%= unites[index].unit %>" value="<%= unites[index]._id %>"> <%= unites[index].unit %> |
-                  <% } %>
-              </div>
-            <% } else { %>
-              <div>
-                no document exist
-              </div>
-            <% } %>
-          <!-- fin du test de message flash -->
+             
 
-          <% unites.forEach(function (task) { %>
+
+          <% unites.forEach(function (zones_unites) { %>
 
             <p>
               <img src="images/syst_planet1.jpeg">
               <strong>syst_solaire1</strong>
-              <a href="tasks/<%= task.id %>"><%= task.name %></a>
-                <form style="inline-form" method="post" action="tasks/<%= task.id %>">
+              <a href="tasks/<%= zones_unites.id %>"><%= zones_unites.name %></a>
+                <form style="inline-form" method="post" action="tasks/<%= zones_unites.id %>">
                   <input name="_method" value="DELETE" type="hidden">
                   <input type="submit" value="Delete">
                 </form>
-              <a href="tasks/<%= task.id %>/edit"><%= task.name %></a><br><br>
+              <a href="tasks/<%= zones_unites.id %>/edit"><%= zones_unites.name %></a><br><br>
             </p>
           <% }); %>
         </div>
 
         <div class="col-md-6" style="background-color:rgba(200,50,50,0.6)">
-          <h2><a href="/maitre-zone-unites-new">Nouvelle Grille avec objets/actions</a></h2>
+          <h2><a href="/maitre-zone-unites-new">Nouvelle Grille avec unités/actions</a></h2>
           <p>
-            Permet de placer vos objets dans une grille.
+            Permet de placer vos unités dans une grille.
           </p>
        </div>
       </div>
+      <!-- Fin zone avec unites et actions -->
 
 
+      <!-- Début  catégories -->
 
 
+      <div class="row" style="background-color:rgba(50,200,150,1)">
+        <div class="col-md-6">
+          <h2>Liste des Catégories</h2>
+          
+             
+
+
+          <% unites.forEach(function (zones_unites) { %>
+
+            <p>
+              <img src="images/syst_planet1.jpeg">
+              <strong>syst_solaire1</strong>
+              <a href="tasks/<%= zones_unites.id %>"><%= zones_unites.name %></a>
+                <form style="inline-form" method="post" action="tasks/<%= zones_unites.id %>">
+                  <input name="_method" value="DELETE" type="hidden">
+                  <input type="submit" value="Delete">
+                </form>
+              <a href="tasks/<%= zones_unites.id %>/edit"><%= zones_unites.name %></a><br><br>
+            </p>
+          <% }); %>
+        </div>
+
+        <div class="col-md-6" style="background-color:rgba(200,50,50,0.6)">
+          <h2><a href="/maitre-zone-unites-new">Nouvelle Catégorie</a></h2>
+          <p>
+            Permet d'organiser vos unites.
+          </p>
+       </div>
+      </div>
+      <!-- Fin catégories -->
 
 
 
